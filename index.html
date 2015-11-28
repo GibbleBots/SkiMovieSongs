@@ -21,14 +21,14 @@
             var myExp = new RegExp(searchField, "i");
             var output = '<div class="row">';
             var count = 1;
-            $.getJSON('data.json', function(data) {
+            $.getJSON('http://skimoviesongs.com/search/data.json', function(data) {
               $.each(data, function(key, val){
-                if ((val.name.search(myExp) != -1) || (val.location.search(myExp) != -1)) {
+                if ((val.entry.name.search(myExp) != -1) || (val.entry.location.search(myExp) != -1)) {
                   output += '<div class="col-md-6 well">';
-                  output += '<div class="col-md-3"><h1>val.movieName</h1>';
+                  output += '<div class="col-md-3"><h1>val,entry.movieName</h1>';
                   output += '<div class="col-md-7">';
-                  output += '<h5>' + val.songName + '</h5>';
-                  output += '<p>' + val.location + '</p>'
+                  output += '<h5>' + val.entry.songName + '</h5>';
+                  output += '<p>' + val.entry.location + '</p>'
                   output += '</div>';
                   output += '</div>';
                   if(count%2 == 0){
