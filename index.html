@@ -1,34 +1,37 @@
+
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <title>Skimoviesongs by GibbleBots</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-<meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="gibblebots.github.io/css/foundation.css" />
-    <link rel="stylesheet" href="gibblebots.github.io/css/app.css" />
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	  <title>Live search with JSON and JQuery - wsnippets.com</title>
+	  <link href="css/bootstrap.css" rel="stylesheet">
+	  <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #35D6A9;
+      }
+    </style>
+    <script type="text/javascript">
       $(window).load(function(){
         $('#search').keyup(function(){
             var searchField = $('#search').val();
             var myExp = new RegExp(searchField, "i");
             var output = '<div class="row">';
             var count = 1;
-            $.getJSON('http://skimoviesongs.com/search/data.json', function(data) {
+            $.getJSON('data.json', function(data) {
               $.each(data, function(key, val){
-                if ((val.entry.name.search(myExp) != -1) || (val.entry.location.search(myExp) != -1)) {
+                if ((val.name.search(myExp) != -1) || (val.location.search(myExp) != -1)) {
                   output += '<div class="col-md-6 well">';
-                  output += '<div class="col-md-3"><h1>val,entry.movieName</h1>';
+                  output += '<div class="col-md-3"><img class="img-responsive" src="'+val.avatar+'" alt="'+ val.name +'" /></div>';
                   output += '<div class="col-md-7">';
-                  output += '<h5>' + val.entry.songName + '</h5>';
-                  output += '<p>' + val.entry.location + '</p>'
+                  output += '<h5>' + val.name + '</h5>';
+                  output += '<p>' + val.location + '</p>'
                   output += '</div>';
                   output += '</div>';
                   if(count%2 == 0){
@@ -45,45 +48,55 @@
 
     </script>
   </head>
+
   <body>
-    <section class="page-header">
-      <h1 class="project-name">Ski Movie Songs</h1>
-      <h2 class="project-tagline">a searchable database of songs from every ski movie ever</h2>
-      <br/>
+
+    <div class="container">
+	<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- footer-banner -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-6907676932067395"
+     data-ad-slot="5998090714"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript" src="http://s.sharethis.com/loader.js"></script>
+<script type="text/javascript">stLight.options({publisher: "0d989ecb-3b82-4988-a090-d396a86e25a7", doNotHash: false, doNotCopy: false, hashAddressBar: true});</script>
+<script>
+var options={ "publisher": "0d989ecb-3b82-4988-a090-d396a86e25a7", "position": "left", "ad": { "visible": false, "openDelay": 5, "closeDelay": 0}, "chicklets": { "items": ["facebook", "twitter", "linkedin", "pinterest", "email", "sharethis"]}};
+var st_hover_widget = new sharethis.widgets.hoverbuttons(options);
+</script>
+  		<h3 class="text-center"> Live search with JSON and JQuery - wsnippets.com | <a href="http://wsnippets.com/live-search-with-json-and-jquery/" class="btn btn-danger">Back to tutorial</a></h3>
+  		<hr>
       <form role="form">
-    <div class="form-group">
-          <input type="text" class="form-control input-lg" id="search" placeholder="Start typing your song, movie, athlete, part...">
+        <div class="form-group">
+          <input type="email" class="form-control input-lg" id="search" placeholder="Sart type 'a' ....">
         </div>
       </form>
-      <br/>
-      <a href="https://github.com/GibbleBots/SkiMovieSongs" class="btn">View on GitHub</a>
-      <a href="https://github.com/GibbleBots/SkiMovieSongs/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/GibbleBots/SkiMovieSongs/tarball/master" class="btn">Download .tar.gz</a>
-
-    </section>
-
-    <section class="main-content">
-  
-  
-   <div class="row">
-   
-	<h1>Results</h1>
-	<br />
-   
-           <div id="results"></div>
-
-    <div style="position:absolute;bottom:0;right:0;text-align:right">
-      <br>
+      <div id="results"></div>
+      <div class="alert alert-info  form-signin text-center">
+	   <h3>Download Script for Subscribed Users Only!</h3>
+	   <form class="subscribe">
+	   <label>Enter email:</label>
+	   <input type="text" name="email" class="form-control"  id="wsnippets_email" />
+	   <input type="hidden" name="wsnippets_secure_key" class="form-control" id="wsnippets_secure_key" value="Ym9vdHN0cmFwLWxpdmUtc2VhcmNo" />
+	   <button type="button" id="download" class="btn btn-inverse downloads">Download</button>
+	   </form>
+	   <div id="loading" style="display:none"><img src="http://wsnippets.com/wp-admin/images/loading.gif" /></div>
+	   <div id="response"></div>
+	   <h2>(Or)</h2>
+	   <h3>New users please subscribe here!</h3>
+	   <form style="border:1px solid #ccc;padding:3px;text-align:center;" action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=wsnippets', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true"><p>Enter your email address:</p><p><input type="text" style="width:140px" name="email"/></p><input type="hidden" value="wsnippets" name="uri"/><input type="hidden" name="loc" value="en_US"/><input type="submit" value="Subscribe" /><p>Delivered by <a href="http://feedburner.google.com" target="_blank">FeedBurner</a></p></form>
+	   <h4>Note : New subscribers email data will be updated every 10 hours</h4>
+	   </div>
     </div>
     </div>
-    
-  
+	</div> 
 
-    </section>
-  
   </body>
-<script src="gibblebots.github.io/js/vendor/jquery.min.js"></script>
-    <script src="gibblebots.github.io/js/vendor/what-input.min.js"></script>
-    <script src="gibblebots.github.io/js/foundation.min.js"></script>
-    <script src="gibblebots.github.io/js/app.js"></script>
 </html>
