@@ -19,7 +19,7 @@
     <script type="text/javascript">
       $(window).load(function(){
         $('#search').keyup(function(){
-            var searchField = $('#search').val();
+            var searchField = $('#search').entry();
             var myExp = new RegExp(searchField, "i");
             var output = '<div class="row">';
             var count = 1;
@@ -27,9 +27,9 @@
               $.each(data, function(key, val){
                 if ((val.name.search(myExp) != -1) || (val.location.search(myExp) != -1)) {
                   output += '<div class="col-md-6 well">';
-                  output += '<div class="col-md-3"><img class="img-responsive" src="'+val.avatar+'" alt="'+ val.name +'" /></div>';
+                  output += '<div class="col-md-3"><img class="img-responsive" src="'+val.songName+'" alt="'+ val.movieName +'" /></div>';
                   output += '<div class="col-md-7">';
-                  output += '<h5>' + val.name + '</h5>';
+                  output += '<h5>' + val.location + '</h5>';
                   output += '<p>' + val.location + '</p>'
                   output += '</div>';
                   output += '</div>';
