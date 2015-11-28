@@ -19,18 +19,18 @@
     <script type="text/javascript">
       $(window).load(function(){
         $('#search').keyup(function(){
-            var searchField = $('#search').entry();
+            var searchField = $('#search').val.entry();
             var myExp = new RegExp(searchField, "i");
             var output = '<div class="row">';
             var count = 1;
             $.getJSON('http://skimoviesongs.com/search/data.json', function(data) {
               $.each(data, function(key, val){
-                if ((val.entry.songArtist.search(myExp) != -1) || (val.songName.search(myExp) != -1)) {
+                if ((val.entry.songArtist.search(myExp) != -1) || (val.entry.songName.search(myExp) != -1)) {
                   output += '<div class="large-6 column panel">';
                   output += '<div class="large-3 columns"><img class="img-responsive" src="'+val.entry.songName+'" alt="'+ val.movieName +'" /></div>';
                   output += '<div class="large-7 columns">';
-                  output += '<h5>' + val.locations + '</h5>';
-                  output += '<p>' + val.athlete  + '</p>'
+                  output += '<h5>' + val.entry.locations + '</h5>';
+                  output += '<p>' + val.entry.athlete  + '</p>'
                   output += '</div>';
                   output += '</div>';
                   if(count%2 == 0){
