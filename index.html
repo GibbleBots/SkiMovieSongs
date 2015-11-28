@@ -25,10 +25,10 @@
             var count = 1;
             $.getJSON('http://skimoviesongs.com/search/data.json', function(data) {
               $.each(data, function(key, val){
-                if ((val.name.search(myExp) != -1) || (val.location.search(myExp) != -1)) {
-                  output += '<div class="col-md-6 well">';
-                  output += '<div class="col-md-3"><img class="img-responsive" src="'+val.songName+'" alt="'+ val.movieName +'" /></div>';
-                  output += '<div class="col-md-7">';
+                if ((val.entry.songArtist.search(myExp) != -1) || (val.location.search(myExp) != -1)) {
+                  output += '<div class="large-6 column panel">';
+                  output += '<div class="large-3 columns"><img class="img-responsive" src="'+val.entry.songName+'" alt="'+ val.movieName +'" /></div>';
+                  output += '<div class="large-7 columns">';
                   output += '<h5>' + val.location + '</h5>';
                   output += '<p>' + val.location + '</p>'
                   output += '</div>';
